@@ -1,14 +1,14 @@
 package lab3.aminoacidquiz;
-import java.util.Random; 
-import java.util.HashMap;
+import java.util.*; 
+//import java.util.HashMap;
 
 public class AminoAcidQuiz 
 {
 	Random random = new Random(); 
 	int correctanswers=0; //creating a variable to track all correct answers
-	String question = FULL_NAMES[random.nextInt(20)];
+	String question = FULL_NAMES[random.nextInt(20)];//question would randomly pull items from the FULL_NAMES str array
 	//String answer = get.
-	HashMap  =  new HashMap(); //making a hashmap 
+	HashMap  hashmap =  new HashMap(); //making a hashmap 
 	hashmap.put(FULL_NAMES.next(), SHORT_NAMES.next());
 	for (int x=0; x<20; x++)
 	{	

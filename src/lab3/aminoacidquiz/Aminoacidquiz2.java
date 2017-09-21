@@ -10,43 +10,30 @@ public class Aminoacidquiz2
 	{
 		Random random = new Random(); 
 		int trackcorrectanswers=0; //tracks total correct answers
-		int randomnumber= random.nextInt(20); 
-		String question = FULL_NAMES[randomnumber];//initiating the question variable
-		Scanner input=new Scanner (System.in); //this will be the user input 
-		Boolean Correct; //initiates correct answer
-		String shortanswer = SHORT_NAMES[randomnumber];
-		Correct= shortanswer.equals(question);
-		//String inputString;//initiating the user input variable
-		String inputStringUpper; //the variable for making the user input uppercase
-		//long startTime = System.currentTimeMillis();
 		while (true)
 		{	
-			//long now = System.currentTimeMillis();
+			int randomnumber= random.nextInt(20); 
+			String question = FULL_NAMES[randomnumber];
 			System.out.println(question);//prints out an item from FULLNAMES randomly
-			//inputStringUpper=inputString.toUpperCase();
-			inputStringUpper=input.nextLine().toUpperCase();
+			Scanner input=new Scanner (System.in); //this will be the user input 
+			String inputStringUpper=input.nextLine().toUpperCase();
 			System.out.println("Your Answer:" + inputStringUpper);
-			//Correct= SHORT_NAMES[randomnumber].equals(question);
-			if (inputStringUpper.equals(Correct))
+			boolean correctanswer = SHORT_NAMES[randomnumber].equals(inputStringUpper);
+			if(correctanswer)
 			{
-				System.out.println("Correct Answer:" + inputStringUpper);
+				trackcorrectanswers++;
+				System.out.println("Correctanswer:" + correctanswer);
+				System.out.println("Number right"+ trackcorrectanswers);
 			}
-				else 
-				{
-					System.out.println("Incorrect :(");
-				}
+			else
+			{
+				System.out.println("Wrong!  The answer was " + SHORT_NAMES[randomnumber]);
+				System.exit(1);
 			}
-			trackcorrectanswers=trackcorrectanswers++; //keeping track of correct answers
-	
-			//if ((now-startTime)/1000f >= 30) //time keeper for 30s
-			//{
-				//break;
-			//}
 		}
-		//System.out.println("Time's Up!"); //prints this at 30s
 	}
 	
-		public static String[] SHORT_NAMES = //creates a string array of the amino acid short letter names
+		public static String[] SHORT_NAMES = 
 
 		{ "A","R", "N", "D", "C", "Q", "E",
 
@@ -55,7 +42,7 @@ public class Aminoacidquiz2
 		"P", "S", "T", "W", "Y", "V" };
 
 
-			public static String[] FULL_NAMES = //creates a string array of full amino acid names
+		public static String[] FULL_NAMES = 
 
 		{
 
@@ -73,7 +60,8 @@ public class Aminoacidquiz2
 
 		"serine","threonine","tryptophan",
 
-		"tyrosine", "valine"};
+		"tyrosine", "valine"
+		};
 }
 
 

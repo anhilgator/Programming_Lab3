@@ -10,9 +10,11 @@ public class Aminoacidquiz2
 	{
 		Random random = new Random(); 
 		int trackcorrectanswers=0; //tracks total correct answers
+		long startTime = System.currentTimeMillis();
 		while (true)
 		{	
 			int randomnumber= random.nextInt(20); 
+			long now = System.currentTimeMillis();
 			String question = FULL_NAMES[randomnumber];
 			System.out.println(question);//prints out an item from FULLNAMES randomly
 			Scanner input=new Scanner (System.in); //this will be the user input 
@@ -23,14 +25,19 @@ public class Aminoacidquiz2
 			{
 				trackcorrectanswers++;
 				System.out.println("Correctanswer:" + correctanswer);
-				System.out.println("Number right"+ trackcorrectanswers);
+				System.out.println("Number right:" + trackcorrectanswers);
 			}
 			else
 			{
 				System.out.println("Wrong!  The answer was " + SHORT_NAMES[randomnumber]);
 				System.exit(1);
 			}
+			if ((now-startTime)/1000f >= 30) //time keeper for 30s
+			{
+				break;
+			}	
 		}
+		System.out.println("Time's Up!"); 
 	}
 	
 		public static String[] SHORT_NAMES = 
